@@ -5,7 +5,7 @@ function mapdata() {
 
   // Write your logic here...
   let i,j;
-  let matrixSize=2;
+  let matrixSize=5;
   for(i=0; i<matrixSize; i++)
   {
     for(j=0; j<matrixSize; j++)
