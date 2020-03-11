@@ -5,7 +5,7 @@ function mapdata() {
 
   // Write your logic here...
   let i,j;
-  let matrixSize=4;
+  let matrixSize=2;
   for(i=0; i<matrixSize; i++)
   {
     for(j=0; j<matrixSize; j++)
@@ -34,8 +34,26 @@ function mapdata() {
       {
         edges.push({"data": {"id": `${i}-${j}E`, "source": `N${i}-${j}`, "target": `N${i}-${j+1}`}});
       }
+      if(i-1>=0)
+      {
+        edges.push({"data": {"id": `${i}-${j}N`, "source": `N${i}-${j}`, "target": `N${i-1}-${j}`}});
+        if(j-1>=0)
+        {
+          edges.push({"data": {"id": `${i}-${j}NW`, "source": `N${i}-${j}`, "target": `N${i-1}-${j-1}`}});
+        }
+        if(j+1<matrixSize)
+        {
+          edges.push({"data": {"id": `${i}-${j}NE`, "source": `N${i}-${j}`, "target": `N${i-1}-${j+1}`}});
+        }
+      }
+      if(j-1>=0)
+      {
+        edges.push({"data": {"id": `${i}-${j}W`, "source": `N${i}-${j}`, "target": `N${i}-${j-1}`}});
+      }
     }
   }
+
+  console.log(edges.length);
 
   elements = {
     nodes,
